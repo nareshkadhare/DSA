@@ -96,6 +96,36 @@ public class SinglyLinkedList {
 		return isRemoved;
 	}
 
+	// Remove at specific position
+	public static boolean removeAt(int position) {
+
+		if (position == 1) {
+			Node temp = head;
+			head = temp.next;
+			return true;
+		} else {
+			Node temp = head;
+			int count = 1;
+			while (count < position - 1) {
+				temp = temp.next;
+				count++;
+			}
+
+			if (temp == null) {
+				System.out.println("Element not found at " + position);
+				return false;
+			}
+
+			Node removedNode = temp.next;
+			if (removedNode != null) {
+				temp.next = removedNode.next;
+				return true;
+			}
+
+			return false;
+		}
+	}
+
 	// Display List
 	public static void display() {
 		if (head == null) {
@@ -127,31 +157,49 @@ public class SinglyLinkedList {
 			System.out.println("Rotation is not posible");
 			return;
 		}
-		
+
 		int nodePosition = 1;
 		Node temp = head;
 		while (nodePosition != elementPosNumber) {
 			temp = temp.next;
 			nodePosition++;
 		}
-		
+
 		if (temp == null || temp.next == null) {
 			System.out.println("Rotation is not posible because - Element number is greter than list");
 			return;
 		}
-		
+
 		Node rotateNode = temp.next;
 		temp.next = null;
 		// 1,2,3,4->null
-		
-		
-		//5,6 -> head
+
+		// 5,6 -> head
 		Node temp2 = rotateNode;
 		while (temp2.next != null) {
 			temp2 = temp2.next;
-		}			
+		}
 		temp2.next = head;
 		head = rotateNode;
+	}
+
+	//Reverse List 5->4->3->2->1->null
+	public static void reverse() {
+
+		Node reverseHead = new Node(head.value);		
+		Node currentNode =  head.next;
+		
+		Node reverseNewNode;
+		while(currentNode != null) {
+			
+			reverseNewNode = new Node(currentNode.value);
+			reverseNewNode.next = reverseHead;			
+			reverseHead = reverseNewNode;
+			
+			currentNode = currentNode.next;
+		}
+		
+		head = reverseHead;
 	}
 
 	public static void main(String[] args) {
@@ -172,7 +220,8 @@ public class SinglyLinkedList {
 		// System.out.println("Removing 30 from list : " + removeNode(40));
 		// System.out.println("Removing 300 from list : " + removeNode(8));
 		display();
-		rotate(5);
+		//System.out.println("Removing at 3rd node from list : " + removeAt(12));
+		reverse();
 		display();
 	}
 }
