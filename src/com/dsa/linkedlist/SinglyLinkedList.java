@@ -183,23 +183,40 @@ public class SinglyLinkedList {
 		head = rotateNode;
 	}
 
-	//Reverse List 5->4->3->2->1->null
+	// Reverse List 5->4->3->2->1->null
 	public static void reverse() {
 
-		Node reverseHead = new Node(head.value);		
-		Node currentNode =  head.next;
-		
+		Node reverseHead = new Node(head.value);
+		Node currentNode = head.next;
+
 		Node reverseNewNode;
-		while(currentNode != null) {
-			
+		while (currentNode != null) {
+
 			reverseNewNode = new Node(currentNode.value);
-			reverseNewNode.next = reverseHead;			
+			reverseNewNode.next = reverseHead;
 			reverseHead = reverseNewNode;
-			
+
 			currentNode = currentNode.next;
 		}
-		
+
 		head = reverseHead;
+	}
+
+	public static void reverse2() {
+		// 1->2->3->4->5
+		// 1-> null
+		// 2->1->null
+		Node prev = null;
+		Node current = head;
+		Node next = null;
+		
+		while(current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;		
 	}
 
 	public static void main(String[] args) {
@@ -220,8 +237,8 @@ public class SinglyLinkedList {
 		// System.out.println("Removing 30 from list : " + removeNode(40));
 		// System.out.println("Removing 300 from list : " + removeNode(8));
 		display();
-		//System.out.println("Removing at 3rd node from list : " + removeAt(12));
-		reverse();
+		// System.out.println("Removing at 3rd node from list : " + removeAt(12));
+		reverse2();
 		display();
 	}
 }
