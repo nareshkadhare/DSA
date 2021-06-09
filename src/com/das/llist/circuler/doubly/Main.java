@@ -7,7 +7,6 @@ public class Main {
 
 		System.out.println("\n===============================\n");
 		Node temp = head;
-
 		do {
 			if (temp == null)
 				break;
@@ -25,7 +24,7 @@ public class Main {
 			return node;
 		}
 
-		// 2. 1 Element
+		// 2. only 1 Element
 		if (head.next == null) {
 			node.next = head;
 			head.prev = node;
