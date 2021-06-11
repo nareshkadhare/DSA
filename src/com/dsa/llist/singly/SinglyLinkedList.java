@@ -1,4 +1,4 @@
-package com.das.llist.singly;
+package com.dsa.llist.singly;
 
 public class SinglyLinkedList {
 
