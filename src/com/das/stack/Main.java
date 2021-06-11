@@ -1,4 +1,4 @@
-package com.das.llist.stack;
+package com.das.stack;
 
 public class Main {
 	
