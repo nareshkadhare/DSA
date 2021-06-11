@@ -1,4 +1,4 @@
-package com.das.stack;
+package com.dsa.stack;
 
 public class InfixToPrefix {
 	static char[] operator;

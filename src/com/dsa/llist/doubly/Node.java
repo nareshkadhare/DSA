@@ -1,8 +1,9 @@
-package com.das.llist.circuler.singly;
+package com.dsa.llist.doubly;
 
 public class Node {
-	Node next;
-	int data;
+	
+	int data;	
+	Node next,prev;
 	
 	public Node(int data) {
 		this.data = data;

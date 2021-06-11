@@ -1,4 +1,4 @@
-package com.das.llist.doubly;
+package com.dsa.llist.doubly;
 
 public class DoublyLinkedList {
 

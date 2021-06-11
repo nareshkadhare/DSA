@@ -1,4 +1,4 @@
-package com.das.llist.circuler.doubly;
+package com.dsa.llist.circuler.doubly;
 
 public class Main {
 
